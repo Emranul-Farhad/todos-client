@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import Tdos from './components/Tdos';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from './components/firekey/Fire';
+import Test from './components/Another/Test';
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
        border  rounded"'>google</button>
        {/* home part  */}
      <Home></Home>
+     {/* test */}
+     <Test></Test>
     </div>
   );
 }
