@@ -1,0 +1,21 @@
+.okay{
+    color: ghostwhite;
+}
+.item{
+    margin-top: 1rem;
+    background-color: #000;
+    color: #fff;
+    padding: 1.5rem 3rem;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 25px;
+    border: 2px solid cyan;
+
+}
+
+.container{
+    /* max-width: 600px; */
+    margin: auto;
+    padding: 0 1rem;
+}
