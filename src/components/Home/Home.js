@@ -11,11 +11,14 @@ const Home = () => {
   const [get, setGate] = useState([])
 
   useEffect(() => {
-    fetch('data.json')
+    fetch('http://localhost:8000/story')
       .then(res => res.json())
       .then(data => setGate(data));
   }, [])
  
+
+  //  
+   
 
   // form submit handel
   const submit = event =>{
