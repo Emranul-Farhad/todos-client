@@ -17,6 +17,17 @@ const Home = () => {
   }, [])
  
 
+  // form submit handel
+  const submit = event =>{
+    event.preventDefault();
+    const tododata = {
+      inputvalue : event.target.story.value
+    }
+    console.log(tododata)
+  }
+
+  
+  
   
 
 
@@ -24,8 +35,8 @@ const Home = () => {
     <div>
       <div>
         <div className='mt-5'>
-          <form>
-            <input className='pb-1 outline-none border-b-2 border-cyan-300' type="text" placeholder='Type here' />
+          <form onSubmit={submit} >
+            <input className='pb-1 outline-none border-b-2 border-cyan-300' type="text" name='story' placeholder='Type here' />
             <input className="mx-5 bg-cyan-300 hover:bg-cyan-500 text-black font-bold py-2 px-4 border  rounded" type="submit" />
           </form>
         </div>
