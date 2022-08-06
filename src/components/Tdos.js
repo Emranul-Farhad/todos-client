@@ -2,9 +2,10 @@ import React from 'react'
 import './Home/Home.css'
 import { BsFillPencilFill } from 'react-icons/bs'
 import { AiFillDelete } from 'react-icons/ai'
+import Swal from 'sweetalert2'
 
 
-const Tdos = ({ data }) => {
+const Tdos = ({ data, update }) => {
 
   const { story, _id } = data;
   console.log()
@@ -16,7 +17,15 @@ const Tdos = ({ data }) => {
       method: "DELETE"
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data =>{
+      if(data.deletedCount == 1){
+        Swal.fire({
+          icon: 'error',
+          title: 'delete',
+          
+        })
+      }
+      console.log(data)})
   }
 
 
@@ -25,7 +34,7 @@ const Tdos = ({ data }) => {
       <div className='flex justify-between items-center'>
         <h3>{story}</h3>
         <div className='flex '>
-         <BsFillPencilFill className='mr-2 text-cyan-300'></BsFillPencilFill>
+         <BsFillPencilFill onClick={update} className='mr-2 text-cyan-300'></BsFillPencilFill>
          <AiFillDelete onClick={()=>deletecontrol(_id) } className='mx-3 text-red-600'></AiFillDelete>
         </div>
       </div>
