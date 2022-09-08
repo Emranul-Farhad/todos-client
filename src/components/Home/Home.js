@@ -1,5 +1,4 @@
-// import { useQuery } from '@tanstack/react-query'
-import { useQuery } from '@tanstack/react-query'
+
 import { data } from 'autoprefixer'
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
@@ -17,15 +16,6 @@ const Home = () => {
   // update todo
   const [isupdate , setIspdate] = useState("")
 
-  const { data: doctors, isLoading, refetch } = useQuery('doctors', () =>
-        fetch('https://damp-crag-21172.herokuapp.com/doctors').then(res =>
-            res.json()
-        )
-    )
-
-    if (isLoading) {
-        <p>aaa</p>
-    }
 
 
     // todo get from data base
@@ -60,9 +50,12 @@ const Home = () => {
                 text: 'added todos',
                 
               })
+             
             }
             setGate([...get ,{story}])
+           
           })
+         
       }
       else{
        const id = isupdate;
@@ -77,7 +70,6 @@ const Home = () => {
        })
        .then(res => res.json())
        .then(data => {
-        refetch()
         console.log(data, "got from here")}) 
   
   }
@@ -101,9 +93,6 @@ const Home = () => {
 
   return (
     <div>
-     <div className='mt-5'>
-     <NavLink className="font-extrabold bg-red-500 p-3" to='/check' > check</NavLink>
-     </div>
       <div>
         <div className='mt-5'>
           <form onSubmit={submit} { ...isupdate ? 'update' : "Add" } >
@@ -116,7 +105,7 @@ const Home = () => {
           {
             get?.map(data =>
                <Tdos key={data._id} data={data} 
-               update={() => updatetodo(data._id, data.story) }
+               update={() => updatetodo(data._id, data.story)}
                > </Tdos>)
           }
         </div>
