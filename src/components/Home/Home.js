@@ -27,6 +27,7 @@ const Home = () => {
         <p>aaa</p>
     }
 
+
     // todo get from data base
   const [get, setGate] = useState([])
   useEffect(() => {
@@ -35,6 +36,7 @@ const Home = () => {
       .then(data => setGate(data));
   }, [])
    
+
   // form submit handel
   const submit = event => {
     event.preventDefault();
@@ -51,13 +53,12 @@ const Home = () => {
         })
           .then(res => res.json())
           .then(data =>{
-            refetch()
             if(data.insertedId){
               Swal.fire({
                 icon: 'right',
-                title: 'Oops...',
-                text: 'Something added',
-                footer: '<a href="">Why do I have this issue?</a>'
+                title: 'Success',
+                text: 'added todos',
+                
               })
             }
             setGate([...get ,{story}])
