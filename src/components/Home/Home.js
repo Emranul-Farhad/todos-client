@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import Test from '../Another/Test'
 import Tdos from '../Tdos'
 import { NavLink } from 'react-router-dom';
+import Nav from '../Nav/Nav'
 
 
 const Home = () => {
@@ -93,6 +94,8 @@ const Home = () => {
 
   return (
     <div>
+
+      <Nav></Nav>
       <div>
         <div className='mt-5'>
           <form onSubmit={submit} { ...isupdate ? 'update' : "Add" } >
